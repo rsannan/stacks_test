@@ -1,8 +1,11 @@
 #ifndef MAIN_H
 #define MAIN_H
+
 #include <stdio.h>
+#include <string.h>
 #include <stddef.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -31,10 +34,9 @@ typedef struct stack_s
 typedef struct instruction_s
 {
         char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+        void (*f)();
 } instruction_t;
 
-extern stack_t *top = NULL;
 /*Add function declarations here*/
 void push(int n);
 void pall();
@@ -43,5 +45,5 @@ void pop();
 void swap();
 void add();
 void nop();
-
+void check_cmd(char *s , int *mode);
 #endif
